@@ -1,0 +1,32 @@
+version: '3.9'
+
+volumes:
+  app_data: {}
+
+services:
+  db-app:
+    image: mysql:8.0
+    volumes:
+      - app_data:/var/lib/mysql
+    container_name: 'db-dev'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dev
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: '&!}2gE9-nQ[L<3+a'
+    ports:
+      - '3306:3306'
+    logging:
+      options:
+        max-file: '2'
+        max-size: 10m
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+  redis:
+    image: redis:6.0-alpine
+    container_name: 'redis-dev'
+    ports:
+      - '6379:6379'
+    logging:
+      options:
+        max-file: '2'
+        max-size: 10m
