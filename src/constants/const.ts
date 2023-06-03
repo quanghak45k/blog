@@ -1,0 +1,1 @@
+export const MAX_LENGTH_USER_ID = 9;

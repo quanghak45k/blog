@@ -16,6 +16,7 @@ import { CONFIG_DATABASE } from './configs/database';
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => configService.get(CONFIG_DATABASE),
     }),
+    
   ],
   controllers: [AppController],
   providers: [AppService],
